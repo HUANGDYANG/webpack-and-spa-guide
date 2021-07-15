@@ -33,12 +33,6 @@
     "presets": [
       "env"
     ]
-  },
-  "eslintConfig": {
-    "extends": "enough",
-    "env": {
-      "browser": true,
-      "node": true
-    }
   }
+ 
 }

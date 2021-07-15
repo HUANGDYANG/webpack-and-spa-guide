@@ -1,11 +1,13 @@
-const { resolve } = require('path')
+const {
+  resolve
+} = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const history = require('connect-history-api-fallback')
 const convert = require('koa-connect')
 
 // 使用 WEBPACK_SERVE 环境变量检测当前是否是在 webpack-server 启动的开发环境中
 const dev = Boolean(process.env.WEBPACK_SERVE)
-
+console.log(process.env.WEBPACK_SERVE);
 module.exports = {
   /*
   webpack 执行模式
@@ -38,8 +40,7 @@ module.exports = {
     配置各种类型文件的加载器，称之为 loader
     webpack 当遇到 import ... 时，会调用这里配置的 loader 对引用的文件进行编译
     */
-    rules: [
-      {
+    rules: [{
         /*
         使用 babel 编译 ES6 / ES7 / ES8 为 ES5 代码
         使用正则表达式匹配后缀名为 .js 的文件
@@ -105,14 +106,12 @@ module.exports = {
         会被编译成
         <img src="/f78661bef717cf2cc2c2e5158f196384.png">
         */
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 10000
-            }
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 10000
           }
-        ]
+        }]
       }
     ]
   },
